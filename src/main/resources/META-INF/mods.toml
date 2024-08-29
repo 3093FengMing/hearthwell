@@ -1,0 +1,37 @@
+modLoader="javafml" #mandatory
+#UPDATE
+loaderVersion="[47,)"
+license="All rights reserved"
+
+[[mods]] #mandatory
+
+modId="hearthwell"
+version="${mod_version}"
+displayName="Hearth Well"
+
+#updateJSONURL="http://myurl.me/"
+#issueTrackerURL="http://my.issue.tracker/"
+
+displayURL="https://wolforcept.github.io"
+logoFile="logo.png"
+
+credits="Wolforce"
+authors="Wolforce"
+
+# The description text for the mod (multi line!) (#mandatory)
+description='''
+	A unique resource generation mod
+'''
+
+[[dependencies.hearthwell]]
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.hearthwell]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
