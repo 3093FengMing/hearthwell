@@ -1,6 +1,5 @@
 package wolforce.hearthwell.client.events;
 
-import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
@@ -10,16 +9,12 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
-import wolforce.hearthwell.HearthWell;
 import wolforce.hearthwell.bases.BlockHasRenderLayer;
 import wolforce.hearthwell.client.render.entity.RendererFlare;
 import wolforce.hearthwell.client.render.entity.RendererHearthWell;
 import wolforce.hearthwell.client.render.te.TerBurstSeed;
-import wolforce.hearthwell.net.ClientProxy;
 import wolforce.hearthwell.particles.ParticleEnergy;
-import wolforce.hearthwell.particles.ParticleEnergyData;
 import wolforce.hearthwell.registries.Blocks;
 import wolforce.hearthwell.registries.Entities;
 import wolforce.hearthwell.registries.Particles;

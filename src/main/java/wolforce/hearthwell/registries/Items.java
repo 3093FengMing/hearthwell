@@ -31,7 +31,7 @@ public class Items {
 
     public static void register(IEventBus bus) {
         TABS.register("hearthwell", () -> CreativeModeTab.builder()
-                .title(Component.translatable("itemGroup.Hearth Well"))
+                .title(Component.translatable("itemGroup.hearthwell"))
                 .icon(() -> new ItemStack(HearthWell.myst_dust.get()))
                 .displayItems((p, o) -> o.acceptAll(ITEM_LIST.stream().map(e -> new ItemStack(e.get())).collect(Collectors.toList())))
                 .build());

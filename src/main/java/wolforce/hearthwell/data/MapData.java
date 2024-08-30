@@ -13,12 +13,12 @@ import java.util.LinkedList;
 
 public class MapData implements Serializable {
 
-	public transient static MapData DATA;
+	public static MapData DATA;
 	public transient int minX = 0, minY = 0, maxX = 0, maxY = 0;
 
-	private transient static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	private transient static final String CONFIG_FILE = "hearthwell_mapdata.json";
-	private transient static final long serialVersionUID = HearthWell.VERSION.hashCode();
+	private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+	private static final String CONFIG_FILE = "hearthwell_mapdata.json";
+	private static final long serialVersionUID = HearthWell.VERSION.hashCode();
 	private transient HashMap<Short, MapNode> nodesByPosition;
 
 	public final HashMap<String, MapNode> nodes = new HashMap<>();

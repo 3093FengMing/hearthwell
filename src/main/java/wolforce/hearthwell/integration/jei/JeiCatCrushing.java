@@ -3,6 +3,7 @@ package wolforce.hearthwell.integration.jei;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import wolforce.hearthwell.HearthWell;
 import wolforce.hearthwell.data.MapData;
@@ -14,7 +15,12 @@ import java.util.List;
 public class JeiCatCrushing extends JeiCat<RecipeCrushing> {
 
 	public JeiCatCrushing() {
-		super(RecipeCrushing.class, HearthWell.MODID, "Crushing Recipes", "crushing", 120, 50, HearthWell.crushing_block);
+		super(RecipeCrushing.class, HearthWell.MODID, "jei.hearthwell.recipe.crush.title", "crushing", 120, 50, HearthWell.crushing_block.get());
+	}
+
+	@Override
+	public Component getTitle() {
+		return Component.translatable("jei.hearthwell.recipe.crush.title");
 	}
 
 	@Override

@@ -29,7 +29,6 @@ import wolforce.hearthwell.particles.ParticleEnergyData;
 import wolforce.hearthwell.registries.Entities;
 import wolforce.hearthwell.util.Util;
 
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -202,13 +201,10 @@ public class EntityFlare extends Entity {
 			double vy = random.nextGaussian() * .002;
 			double vz = random.nextGaussian() * .002;
 
-			if (i == 0) {
-//				world.addParticle(new ParticleEnergyData(-color), pos.x + x, pos.y + y, pos.z + z, vx, vy, vz);
-				this.level().addParticle(new ParticleEnergyData(color), pos.x + x, pos.y + y, pos.z + z, vx, vy, vz);
+            //				world.addParticle(new ParticleEnergyData(-color), pos.x + x, pos.y + y, pos.z + z, vx, vy, vz);
+            this.level().addParticle(new ParticleEnergyData(color), pos.x + x, pos.y + y, pos.z + z, vx, vy, vz);
 //				double prob = world.getDayTime() > 12000 ? 0.75 : 0.25;
-			} else
-				this.level().addAlwaysVisibleParticle(new ParticleEnergyData(color), pos.x + x, pos.y + y, pos.z + z, vx, vy, vz);
-		}
+        }
 
 	}
 

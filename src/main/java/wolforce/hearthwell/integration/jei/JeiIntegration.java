@@ -40,22 +40,22 @@ public class JeiIntegration extends IJeiIntegration {
 	@Override
 	protected void registerOther(IRecipeRegistration reg) {
 		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.prayer_letter.get())), VanillaTypes.ITEM_STACK,
-				Component.translatable("description.hearthwell.prayer_letter"));
+				Component.translatable("jei.hearthwell.description.prayer_letter"));
 		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.flare_torch.get())), VanillaTypes.ITEM_STACK,
-				Component.translatable("description.hearthwell.flare_torch"));
+				Component.translatable("jei.hearthwell.description.flare_torch"));
 		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.myst_dust.get())), VanillaTypes.ITEM_STACK,
-				Component.translatable("description.hearthwell.myst_dust"));
+				Component.translatable("jei.hearthwell.description.myst_dust"));
 		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.myst_bush.get())), VanillaTypes.ITEM_STACK,
-				Component.translatable("description.hearthwell.myst_bush"));
+				Component.translatable("jei.hearthwell.description.myst_bush"));
 		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.myst_bush_small.get())), VanillaTypes.ITEM_STACK,
-				Component.translatable("description.hearthwell.myst_bush_small"));
+				Component.translatable("jei.hearthwell.description.myst_bush_small"));
 		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.crystal.get())), VanillaTypes.ITEM_STACK,
-				Component.translatable("description.hearthwell.crystal"));
+				Component.translatable("jei.hearthwell.description.crystal"));
 		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.token_base.get())), VanillaTypes.ITEM_STACK,
-				Component.translatable("description.hearthwell.token_base"));
+				Component.translatable("jei.hearthwell.description.token_base"));
 		for (ItemTokenOf tokenItem : HearthWell.getTokenItems()) {
 			reg.addIngredientInfo(Util.listOf(new ItemStack(tokenItem)), VanillaTypes.ITEM_STACK,
-					Component.translatable("description.hearthwell.token_base"));
+					Component.translatable("jei.hearthwell.description.token_base"));
 		}
 	}
 

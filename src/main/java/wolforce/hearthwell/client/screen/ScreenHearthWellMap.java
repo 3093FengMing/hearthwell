@@ -70,7 +70,7 @@ public class ScreenHearthWellMap extends Screen {
 	TextBox[] fields;
 
 	public ScreenHearthWellMap(EntityHearthWell hearthwell) {
-		super(Component.literal("Map of the Well"));
+		super(Component.translatable("gui.hearthwell.title"));
 		this.hearthwell = hearthwell;
 
 //		beams = new LinkedList<>();
@@ -92,35 +92,35 @@ public class ScreenHearthWellMap extends Screen {
 		int lineH = 36;
 
 		// id and name
-		fields[0] = new TextBox("Node ID", font, xx - 128, yy, ww - 4, hh, stc(""));
-		fields[1] = new TextBox("Name", font, xx, yy, ww + 128, hh, stc(""));
+		fields[0] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_id"), font, xx - 128, yy, ww - 4, hh, stc(""));
+		fields[1] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_name"), font, xx, yy, ww + 128, hh, stc(""));
 		yy += lineH;
 		// x y time icon
-		fields[2] = new TextBox("X", font, xx - 128, yy, 60, hh, stc(""));
-		fields[3] = new TextBox("Y", font, xx - 64, yy, 60, hh, stc(""));
-		fields[4] = new TextBox("Time", font, xx, yy, 60, hh, stc(""));
-		fields[5] = new TextBox("Item Icon", font, xx + 66, yy, ww + 62, hh, stc(""));
+		fields[2] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_x"), font, xx - 128, yy, 60, hh, stc(""));
+		fields[3] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_y"), font, xx - 64, yy, 60, hh, stc(""));
+		fields[4] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_time"), font, xx, yy, 60, hh, stc(""));
+		fields[5] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_icon"), font, xx + 66, yy, ww + 62, hh, stc(""));
 		yy += lineH;
 		// description
-		fields[6] = new TextBox("Short Description", font, xx - 128, yy, ww + 256, hh, stc(""));
+		fields[6] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_short_desc"), font, xx - 128, yy, ww + 256, hh, stc(""));
 		// full description
 		yy += lineH;
-		fields[7] = new TextBox("Full Description", font, xx - 128, yy, ww + 256, hh, stc(""));
+		fields[7] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_full_desc"), font, xx - 128, yy, ww + 256, hh, stc(""));
 		yy += lineH;
-		fields[8] = new TextBox("Parents", font, xx - 128, yy, ww + 256, hh, stc(""));
+		fields[8] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_parents"), font, xx - 128, yy, ww + 256, hh, stc(""));
 		yy += lineH;
-		fields[9] = new TextBox("Recipes", font, xx - 128, yy, ww + 256, hh, stc(""));
+		fields[9] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_recipes"), font, xx - 128, yy, ww + 256, hh, stc(""));
 		yy += lineH;
-		fields[10] = new TextBox("Required Items", font, xx - 128, yy, ww + 256, hh, stc(""));
+		fields[10] = new TextBox(Component.translatable("gui.hearthwell.editmode.node_items"), font, xx - 128, yy, ww + 256, hh, stc(""));
 		yy += 22;
 
-		for (int i = 0; i < fields.length; i++) {
-			fields[i].setVisible(false);
-			fields[i].setMaxLength(999);
-			addWidget(fields[i]);
-		}
+        for (TextBox field : fields) {
+            field.setVisible(false);
+            field.setMaxLength(999);
+            addWidget(field);
+        }
 
-		this.buttonSave = new Button.Builder(stc("save"), (button) -> {
+		this.buttonSave = new Button.Builder(Component.translatable("gui.hearthwell.editmode.save"), (button) -> {
 			//			this.buttonSave = new Button(width - 50, height - 50, 50, 50, stc("save"), (button) -> {
 			if (selectedNode != null)
 				selectedNode.save();
@@ -217,8 +217,8 @@ public class ScreenHearthWellMap extends Screen {
 //		boolean ret = super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
 			int dragX = (int) (_dragX > 0 ? Math.ceil(_dragX) : Math.floor(_dragX));
 			int dragY = (int) (_dragY > 0 ? Math.ceil(_dragY) : Math.floor(_dragY));
-			dx = (int) (dx + Math.ceil(dragX));
-			dy = (int) (dy + Math.ceil(dragY));
+			dx = (int) (dx + (double) dragX);
+			dy = (int) (dy + (double) dragY);
 			if (!EDIT_MODE) {
 
 //				int actualSizeX = Math.max(DATA.sizeX * S, width);
@@ -336,7 +336,7 @@ public class ScreenHearthWellMap extends Screen {
 			if (node.x == 0 && node.y == 0) {
 				guiGraphics.blit(GUI_TEXTURE, x, y, /* w,h */S, S, /* u,v */225, 0, /* uw,vh */32, 32, /* w,h */TEXTURE_W, TEXTURE_H);
 			} else {
-				if (hearthwell != null && node != null) {
+				if (hearthwell != null) {
 					int v = hearthwell.isUnlocked(node) ? 0 : hearthwell.isUnlockable(node) ? 32 : 64;
 					guiGraphics.blit(GUI_TEXTURE, x, y, /* w,h */S, S, /* u,v */v, 0, /* uw,vh */32, 32, /* w,h */TEXTURE_W, TEXTURE_H);
 				}
@@ -387,11 +387,11 @@ public class ScreenHearthWellMap extends Screen {
 		}
 
 		if (EDIT_MODE) {
-			guiGraphics.drawString(font, "You are in Edit Mode", 3, height - 50, 0xFF0000);
-			guiGraphics.drawString(font, "Right click to edit a node.", 3, height - 40, 0xFF0000);
-			guiGraphics.drawString(font, "Middle click to create/delete a node.", 3, height - 30, 0xFF0000);
-			guiGraphics.drawString(font, "Use the command \"/hw edit\" to toggle Edit Mode.", 3, height - 20, 0xFF0000);
-			guiGraphics.drawString(font, "Use the command \"/hw reload\" to load the map from the config file.", 3, height - 10, 0xFF0000);
+			guiGraphics.drawString(font, Component.translatable("gui.hearthwell.editmode.1"), 3, height - 50, 0xFF0000);
+			guiGraphics.drawString(font, Component.translatable("gui.hearthwell.editmode.2"), 3, height - 40, 0xFF0000);
+			guiGraphics.drawString(font, Component.translatable("gui.hearthwell.editmode.3"), 3, height - 30, 0xFF0000);
+			guiGraphics.drawString(font, Component.translatable("gui.hearthwell.editmode.4"), 3, height - 20, 0xFF0000);
+			guiGraphics.drawString(font, Component.translatable("gui.hearthwell.editmode.5"), 3, height - 10, 0xFF0000);
 		}
 
 		RenderSystem.disableBlend();
@@ -427,29 +427,31 @@ public class ScreenHearthWellMap extends Screen {
 
 	private void renderTooltip(GuiGraphics guiGraphics, int mouseX, int mouseY, MapNode node) {
 
-		List<String> texts = new LinkedList<>();
+		List<Component> texts = new ArrayList<>();
 
 		if (hearthwell.isUnlocked(node)) {
-			texts.add(node.name);
-            Collections.addAll(texts, node.short_description.split("\n"));
+			texts.add(Component.literal(node.name));
+			for (String s : node.short_description.split("\n")) {
+				texts.add(Component.literal(s));
+			}
 		} else {
 			boolean renderItems = false;
 			if (node.hash() == MapNode.hash(hearthwell.getResearchNode())) {
-				texts.add("Researching: " + (Math.round(hearthwell.getResearchPercent() * 1000) / 10.0) + "%");
+				texts.add(Component.translatable("gui.hearthwell.researching", (Math.round(hearthwell.getResearchPercent() * 1000) / 10.0)));
 				renderItems = true;
 			} else {
 				if (hearthwell.isUnlockable(node)) {
-					texts.add("Locked");
+					texts.add(Component.translatable("gui.hearthwell.locked"));
 					renderItems = true;
 				}
 			}
 
 			if (renderItems && !node.requiredItems.isEmpty()) {
-				texts.add("Required Items:");
+				texts.add(Component.translatable("gui.hearthwell.required_item"));
 
 				int tooltipTextWidth = 0;
 
-				for (FormattedText textLine : texts.stream().map(Component::literal).toList()) {
+				for (FormattedText textLine : texts) {
 					int textLineWidth = font.width(textLine);
 					if (textLineWidth > tooltipTextWidth)
 						tooltipTextWidth = textLineWidth;
@@ -481,19 +483,18 @@ public class ScreenHearthWellMap extends Screen {
 					dx += 20;
 					widthInSpaces.append("     ");
 				}
-				texts.add(widthInSpaces.toString());
-				texts.add("");
+				texts.add(Component.literal(widthInSpaces.toString()));
+//				texts.add("");
 			}
 		}
 
-		List<Component> lines = texts.stream().map(Component::literal).collect(Collectors.toList());
-		if (hearthwell.isUnlocked(node)) {
-			MutableComponent learnMoreLine = Component.literal("right click to learn more");
+        if (hearthwell.isUnlocked(node)) {
+			MutableComponent learnMoreLine = Component.translatable("gui.hearthwell.learn_more");
 			learnMoreLine.withStyle(Style.EMPTY.withColor(TextColor.parseColor("#555555")));
-			lines.add(learnMoreLine);
+			texts.add(learnMoreLine);
 		}
 
-//		renderComponentTooltip(guiGraphics, lines, mouseX, mouseY, font);
+		guiGraphics.renderComponentTooltip(font, texts, mouseX, mouseY);
 	}
 
 	//
@@ -639,17 +640,17 @@ public class ScreenHearthWellMap extends Screen {
 				}
 
 				if (recipes != null && !recipes.isEmpty()) {
-					String line1 = "Unlocked recipes: " + (page + 1) + "/" + recipes.size();
+					Component line1 = Component.translatable("gui.hearthwell.unlocked_recipes", page + 1, recipes.size());
 					int xx = width / 2 - font.width(line1) / 2;
 					guiGraphics.drawString(font, line1, xx, yy + 20, 0xFFFFFFFF);
-					String line2 = "<< scroll >>";
+					Component line2 = Component.translatable("gui.hearthwell.scroll");
 					xx = width / 2 - font.width(line2) / 2;
 					guiGraphics.drawString(font, line2, xx, yy + 32, 0x77FFFFFF);
 					RecipeHearthWell recipe = recipes.get(page);
 					if (recipe != null)
 						RenderRecipes.render(recipe, guiGraphics, width / 2, yy + 60);
 					else {
-						String line3 = "Recipe " + "not found.";
+						Component line3 = Component.translatable("gui.hearthwell.recipe_notfound");
 						xx = width / 2 - font.width(line3) / 2;
 						guiGraphics.drawString(font, line3, xx, yy + 60, 0x77FFFFFF);
 					}
@@ -724,9 +725,9 @@ public class ScreenHearthWellMap extends Screen {
 
 	class TextBox extends EditBox {
 
-		private String textboxTitle;
+		private Component textboxTitle;
 
-		public TextBox(String textboxTitle, Font font, int x, int y, int w, int h, Component text) {
+		public TextBox(Component textboxTitle, Font font, int x, int y, int w, int h, Component text) {
 			super(font, x, y, w, h, text);
 			this.textboxTitle = textboxTitle;
 		}

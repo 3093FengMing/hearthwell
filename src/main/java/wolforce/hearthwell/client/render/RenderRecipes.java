@@ -30,10 +30,9 @@ public class RenderRecipes {
 		//
 		// BURST SEEDS
 
-		if (_recipe instanceof RecipeBurstSeed) {
-			RecipeBurstSeed recipe = (RecipeBurstSeed) _recipe;
+		if (_recipe instanceof RecipeBurstSeed recipe) {
 
-			int w = 64;
+            int w = 64;
 			int h = 64;
 			x -= w / 2;
 
@@ -50,10 +49,9 @@ public class RenderRecipes {
 		//
 		// HAND ITEM
 
-		if (_recipe instanceof RecipeHandItem) {
-			RecipeHandItem recipe = (RecipeHandItem) _recipe;
+		if (_recipe instanceof RecipeHandItem recipe) {
 
-			int w = 130;
+            int w = 130;
 			int h = 34;
 			x -= w / 2;
 			// x,y u,v width,height textureWidth,textureHeight
@@ -87,10 +85,9 @@ public class RenderRecipes {
 		//
 		// FLARE
 
-		if (_recipe instanceof RecipeFlare) {
-			RecipeFlare recipe = (RecipeFlare) _recipe;
+		if (_recipe instanceof RecipeFlare recipe) {
 
-			int w = 134;
+            int w = 134;
 			int h = 82;
 			x -= w / 2;
 			RenderSystem.enableBlend();
@@ -122,10 +119,9 @@ public class RenderRecipes {
 		//
 		// TRANSFORMATION
 
-		if (_recipe instanceof RecipeTransformation) {
-			RecipeTransformation recipe = (RecipeTransformation) _recipe;
+		if (_recipe instanceof RecipeTransformation recipe) {
 
-			int w = 130;
+            int w = 130;
 			int h = 34;
 			x -= w / 2;
 			RenderSystem.setShaderTexture(0, texTransformation);
@@ -159,10 +155,9 @@ public class RenderRecipes {
 		//
 		// INFLUENCE
 
-		if (_recipe instanceof RecipeInfluence) {
-			RecipeInfluence recipe = (RecipeInfluence) _recipe;
+		if (_recipe instanceof RecipeInfluence recipe) {
 
-			int w = 82;
+            int w = 82;
 			int h = 78;
 			x -= w / 2;
 			// x,y u,v width,height textureWidth,textureHeight

@@ -4,6 +4,7 @@ import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.client.renderer.Rect2i;
+import net.minecraft.network.chat.Component;
 import wolforce.hearthwell.HearthWell;
 import wolforce.hearthwell.data.MapData;
 import wolforce.hearthwell.data.recipes.RecipeInfluence;
@@ -14,7 +15,12 @@ import java.util.List;
 public class JeiCatInfluence extends JeiCat<RecipeInfluence> {
 
 	public JeiCatInfluence() {
-		super(RecipeInfluence.class, HearthWell.MODID, "Influence Recipes", "influence", 82, 78, HearthWell.myst_dust);
+		super(RecipeInfluence.class, HearthWell.MODID, "Influence Recipes", "influence", 82, 78, HearthWell.myst_dust.get());
+	}
+
+	@Override
+	public Component getTitle() {
+		return Component.translatable("jei.hearthwell.recipe.influence.title");
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package wolforce.hearthwell.integration.jei;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import net.minecraft.network.chat.Component;
 import wolforce.hearthwell.HearthWell;
 import wolforce.hearthwell.data.MapData;
 import wolforce.hearthwell.data.recipes.RecipeTransformation;
@@ -13,7 +14,12 @@ import java.util.List;
 public class JeiCatTransformation extends JeiCat<RecipeTransformation> {
 
 	public JeiCatTransformation() {
-		super(RecipeTransformation.class, HearthWell.MODID, "Transformation Recipes", "transformation", 130, 34, HearthWell.myst_dust);
+		super(RecipeTransformation.class, HearthWell.MODID, "Transformation Recipes", "transformation", 130, 34, HearthWell.myst_dust.get());
+	}
+
+	@Override
+	public Component getTitle() {
+		return Component.translatable("jei.hearthwell.recipe.transformation.title");
 	}
 
 	@Override

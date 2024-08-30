@@ -3,6 +3,7 @@ package wolforce.hearthwell.integration.jei;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import wolforce.hearthwell.HearthWell;
 import wolforce.hearthwell.data.MapData;
@@ -14,7 +15,12 @@ import java.util.List;
 public class JeiCatFlare extends JeiCat<RecipeFlare> {
 
 	public JeiCatFlare() {
-		super(RecipeFlare.class, HearthWell.MODID, "Flare Recipes", "entity_flare", 134, 82, HearthWell.flare_torch);
+		super(RecipeFlare.class, HearthWell.MODID, "jei.hearthwell.recipe.flare.title", "entity_flare", 134, 82, HearthWell.flare_torch.get());
+	}
+
+	@Override
+	public Component getTitle() {
+		return Component.translatable("jei.hearthwell.recipe.flare.title");
 	}
 
 	@Override

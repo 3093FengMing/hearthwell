@@ -21,9 +21,7 @@ import static net.minecraft.commands.Commands.literal;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class HearthWellCommands {
 
-	private static Predicate<CommandSourceStack> OP = (source) -> {
-		return source.hasPermission(2);
-	};
+	private static final Predicate<CommandSourceStack> OP = (source) -> source.hasPermission(2);
 
 	@SubscribeEvent
 	public static void init(RegisterCommandsEvent event) {
@@ -48,10 +46,13 @@ public class HearthWellCommands {
 		return 1;
 	};
 
-	@SuppressWarnings("resource")
 	public static final Command<CommandSourceStack> toggleEditMode = (CommandContext<CommandSourceStack> context) -> {
 		ScreenHearthWellMap.EDIT_MODE = !ScreenHearthWellMap.EDIT_MODE;
-		Minecraft.getInstance().player.sendSystemMessage(Component.literal("Hearth Well Edit Mode is now: " + (ScreenHearthWellMap.EDIT_MODE ? "ON" : "OFF")));
+		Minecraft.getInstance().player.sendSystemMessage(
+				Component.translatable("commands.hearthwell.hw.toggle_edit_mode",
+						(ScreenHearthWellMap.EDIT_MODE ?
+								Component.translatable("commands.hearthwell.hw.edit_mode.on") :
+								Component.translatable("commands.hearthwell.hw.edit_mode.off"))));
 		return 1;
 	};
 }
