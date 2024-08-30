@@ -41,26 +41,26 @@ public class ParticleEnergyData implements ParticleOptions {
 	}
 
 	@SuppressWarnings("deprecation")
-	public static final Deserializer<ParticleEnergyData> DESERIALIZER = new Deserializer<ParticleEnergyData>() {
+	public static final Deserializer<ParticleEnergyData> DESERIALIZER = new Deserializer<>() {
 
-		@Override
-		public ParticleEnergyData fromCommand(ParticleType<ParticleEnergyData> type, StringReader reader) throws CommandSyntaxException {
+        @Override
+        public ParticleEnergyData fromCommand(ParticleType<ParticleEnergyData> type, StringReader reader) throws CommandSyntaxException {
 			reader.readString();
-			reader.expect(' ');
-			return new ParticleEnergyData(reader.readInt());
-		}
+            reader.expect(' ');
+            return new ParticleEnergyData(reader.readInt());
+        }
 
-		@Override
-		public ParticleEnergyData fromNetwork(ParticleType<ParticleEnergyData> type, FriendlyByteBuf buf) {
-			return new ParticleEnergyData(buf.readInt());
-		}
-	};
+        @Override
+        public ParticleEnergyData fromNetwork(ParticleType<ParticleEnergyData> type, FriendlyByteBuf buf) {
+            return new ParticleEnergyData(buf.readInt());
+        }
+    };
 
-	public static final ParticleType<ParticleEnergyData> TYPE = new ParticleType<ParticleEnergyData>(false, DESERIALIZER) {
-		public Codec<ParticleEnergyData> codec() {
-			return CODEC;
-		}
-	};
+	public static final ParticleType<ParticleEnergyData> TYPE = new ParticleType<>(false, DESERIALIZER) {
+        public Codec<ParticleEnergyData> codec() {
+            return CODEC;
+        }
+    };
 
 	public static final Codec<ParticleEnergyData> CODEC = RecordCodecBuilder
 			.create(instance -> instance.group(Codec.INT.fieldOf("color").forGetter(d -> d.color))//

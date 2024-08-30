@@ -10,6 +10,7 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 import wolforce.hearthwell.HearthWell;
 import wolforce.hearthwell.bases.BlockHasRenderLayer;
@@ -21,6 +22,7 @@ import wolforce.hearthwell.particles.ParticleEnergy;
 import wolforce.hearthwell.particles.ParticleEnergyData;
 import wolforce.hearthwell.registries.Blocks;
 import wolforce.hearthwell.registries.Entities;
+import wolforce.hearthwell.registries.Particles;
 import wolforce.hearthwell.registries.TileEntities;
 
 import java.util.stream.Collectors;
@@ -61,8 +63,7 @@ public class EventsMod {
 
 	@SubscribeEvent
 	public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
-		ParticleEngine particleEngine = ClientProxy.MC.particleEngine;
-		particleEngine.register(ParticleEnergyData.TYPE, ParticleEnergy.Factory::new);
+		event.registerSpriteSet(Particles.ENERGY.get(), ParticleEnergy.Factory::new);
 	}
 
 }

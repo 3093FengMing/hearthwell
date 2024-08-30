@@ -119,15 +119,11 @@ public class EntityFlare extends Entity {
 			return null;
 
 		Vec3 pos = position();
-		players.sort(new Comparator<Player>() {
-
-			@Override
-			public int compare(Player o1, Player o2) {
-				double d1 = o1.position().distanceTo(pos);
-				double d2 = o2.position().distanceTo(pos);
-				return Double.compare(d1, d2);
-			}
-		});
+		players.sort((o1, o2) -> {
+            double d1 = o1.position().distanceTo(pos);
+            double d2 = o2.position().distanceTo(pos);
+            return Double.compare(d1, d2);
+        });
 		return players.get(0);
 	}
 
