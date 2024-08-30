@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "hearthwell:items/flare_torch"
+		"layer0": "hearthwell:item/flare_torch"
 	},
 	"display": {
 		"thirdperson": {

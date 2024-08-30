@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "hearthwell:items/crystal_pink"
+		"layer0": "hearthwell:item/crystal_pink"
 	},
 	"display": {
 		"thirdperson": {

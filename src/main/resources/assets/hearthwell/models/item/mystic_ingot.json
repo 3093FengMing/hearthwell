@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "hearthwell:items/mystic_ingot"
+		"layer0": "hearthwell:item/mystic_ingot"
 	},
 	"display": {
 		"thirdperson": {

@@ -11,8 +11,6 @@ import wolforce.hearthwell.HearthWell;
 import wolforce.hearthwell.TokenNames;
 import wolforce.hearthwell.client.events.EventsForge;
 
-import java.util.Random;
-
 public class ItemTokenBase extends Item {
 
 	public ItemTokenBase(Properties props) {

@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "hearthwell:items/token_base"
+		"layer0": "hearthwell:item/token_base"
 	},
 	"display": {
 		"thirdperson": {

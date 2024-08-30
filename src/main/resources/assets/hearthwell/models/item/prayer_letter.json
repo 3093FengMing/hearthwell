@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "hearthwell:items/prayer_letter"
+		"layer0": "hearthwell:item/prayer_letter"
 	},
 	"display": {
 		"thirdperson": {

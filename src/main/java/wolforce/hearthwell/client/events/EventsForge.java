@@ -7,7 +7,6 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource.BufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderLevelStageEvent;
@@ -15,7 +14,6 @@ import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.joml.Quaternionf;
-import wolforce.hearthwell.HearthWell;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -23,13 +21,13 @@ import java.util.LinkedList;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class EventsForge {
 
-	public static final ItemStack identifierStack = new ItemStack(HearthWell.myst_dust);
+	// public static final ItemStack identifierStack = new ItemStack(HearthWell.myst_dust);
 
 	@SubscribeEvent
 	public static void renderTooltip(final RenderTooltipEvent.Pre event) {
-		if (event.getItemStack() == identifierStack) {
-
-		}
+//		if (event.getItemStack() == identifierStack) {
+//
+//		}
 	}
 
 	private static class LetterRender {

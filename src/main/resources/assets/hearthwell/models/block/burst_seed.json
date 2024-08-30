@@ -3,8 +3,8 @@
 	"ambientocclusion": false,
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "hearthwell:blocks/burst_seed",
-		"particle": "hearthwell:blocks/burst_seed"
+		"0": "hearthwell:block/burst_seed",
+		"particle": "hearthwell:block/burst_seed"
 	},
 	"elements": [
 		{

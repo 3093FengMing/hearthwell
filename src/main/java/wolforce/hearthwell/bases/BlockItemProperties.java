@@ -1,7 +1,6 @@
 package wolforce.hearthwell.bases;
 
 import net.minecraft.world.item.Item;
-import wolforce.hearthwell.HearthWell;
 
 public interface BlockItemProperties {
 

@@ -42,10 +42,10 @@ public abstract class RecipeHearthWell implements Serializable {
 		for (String string : this.output.split(","))
 			outputParts.add(new RecipePart(string));
 
-		System.out.println("Recipe Inited: " + this.getClass().getSimpleName() + " " + recipeId);
-		System.out.println(input + " => " + getInputStacks());
-		System.out.println(output + " => " + getOutputStacksFlat());
-		System.out.println("--//--");
+//		System.out.println("Recipe Inited: " + this.getClass().getSimpleName() + " " + recipeId);
+//		System.out.println(input + " => " + getInputStacks());
+//		System.out.println(output + " => " + getOutputStacksFlat());
+//		System.out.println("--//--");
 //		initRecipe();
 	}
 

@@ -17,17 +17,16 @@ public class TileEntities {
 	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES,
 			HearthWell.MODID);
 
-	private static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerType(BlockEntityType.BlockEntitySupplier<T> create,
-			Supplier<Block> valid) {
+	private static <T extends BlockEntity> Supplier<BlockEntityType<T>> registerType(BlockEntityType.BlockEntitySupplier<T> create, Supplier<Block> valid) {
 		return () -> new BlockEntityType<>(create, Set.of(valid.get()), null);
 	}
 
 	// TILE REGISTRY
 
 	public static final RegistryObject<BlockEntityType<TeBurstSeed>> burst_seed = REGISTRY.register("burst_seed_tile_entity",
-			registerType(TeBurstSeed::new, () -> HearthWell.burst_seed));
+			registerType(TeBurstSeed::new, () -> HearthWell.burst_seed.get()));
 
 	public static final RegistryObject<BlockEntityType<TeFertileSoil>> fertile_soil = REGISTRY.register("fertile_soil_tile_entity",
-			registerType(TeFertileSoil::new, () -> HearthWell.fertile_soil));
+			registerType(TeFertileSoil::new, () -> HearthWell.fertile_soil.get()));
 
 }

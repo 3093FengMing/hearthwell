@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all": "hearthwell:blocks/myst_dust_block"
+		"all": "hearthwell:block/myst_dust_block"
 	}
 }

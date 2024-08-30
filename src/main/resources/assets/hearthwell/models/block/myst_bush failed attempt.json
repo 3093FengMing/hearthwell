@@ -3,8 +3,8 @@
 	"ambientocclusion": false,
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "hearthwell:blocks/myst_bush",
-		"particle": "hearthwell:blocks/myst_bush"
+		"0": "hearthwell:block/myst_bush",
+		"particle": "hearthwell:block/myst_bush"
 	},
 	"elements": [
 		{

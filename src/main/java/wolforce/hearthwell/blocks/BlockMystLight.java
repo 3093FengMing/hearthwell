@@ -11,8 +11,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import wolforce.hearthwell.bases.BaseBlock;
 import wolforce.hearthwell.particles.ParticleEnergyData;
 
-import java.util.Random;
-
 public class BlockMystLight extends BaseBlock {
 
 	public BlockMystLight(Properties properties) {

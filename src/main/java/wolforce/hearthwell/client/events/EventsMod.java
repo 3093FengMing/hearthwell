@@ -10,6 +10,7 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.RegistryObject;
 import wolforce.hearthwell.HearthWell;
 import wolforce.hearthwell.bases.BlockHasRenderLayer;
 import wolforce.hearthwell.client.render.entity.RendererFlare;
@@ -18,8 +19,11 @@ import wolforce.hearthwell.client.render.te.TerBurstSeed;
 import wolforce.hearthwell.net.ClientProxy;
 import wolforce.hearthwell.particles.ParticleEnergy;
 import wolforce.hearthwell.particles.ParticleEnergyData;
+import wolforce.hearthwell.registries.Blocks;
 import wolforce.hearthwell.registries.Entities;
 import wolforce.hearthwell.registries.TileEntities;
+
+import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class EventsMod {
@@ -27,7 +31,7 @@ public class EventsMod {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 
-		for (Block block : HearthWell.blocks.values()) {
+		for (Block block : Blocks.BLOCKS.getEntries().stream().map(RegistryObject::get).collect(Collectors.toSet())) {
 
 			if (block instanceof BlockHasRenderLayer)
 				registerRenderLayer(block);

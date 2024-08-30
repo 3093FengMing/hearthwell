@@ -1,13 +1,13 @@
 modLoader="javafml" #mandatory
 #UPDATE
 loaderVersion="[47,)"
-license="All rights reserved"
+license="${mod_license}"
 
 [[mods]] #mandatory
 
-modId="hearthwell"
+modId="${mod_id}"
 version="${mod_version}"
-displayName="Hearth Well"
+displayName="${mod_name}"
 
 #updateJSONURL="http://myurl.me/"
 #issueTrackerURL="http://my.issue.tracker/"
@@ -15,21 +15,19 @@ displayName="Hearth Well"
 displayURL="https://wolforcept.github.io"
 logoFile="logo.png"
 
-credits="Wolforce"
-authors="Wolforce"
+credits="${mod_authors}"
+authors="${mod_authors}"
 
 # The description text for the mod (multi line!) (#mandatory)
-description='''
-	A unique resource generation mod
-'''
+description="${mod_description}"
 
-[[dependencies.hearthwell]]
+[[dependencies.${mod_id}]]
     modId="forge" #mandatory
     mandatory=true #mandatory
     versionRange="[47,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.hearthwell]]
+[[dependencies.${mod_id}]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.20.1,1.21)"

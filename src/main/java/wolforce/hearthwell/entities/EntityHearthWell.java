@@ -143,7 +143,7 @@ public class EntityHearthWell extends Entity {
 //					int[] matchesResult = recipe.matches(nearItemsGood.stream().map(e -> e.getItem()).collect(toList()));
 //					int matches = matchesResult[0];
 //					int nrOfMystDust = matchesResult[1];
-					boolean matches = recipe.matchesAllInputs(nearItemsGood.stream().map(e -> e.getItem()).toList());
+					boolean matches = recipe.matchesAllInputs(nearItemsGood.stream().map(ItemEntity::getItem).toList());
 					if (matches) {
 						Vec3 flarePos = null;
 						for (List<ItemStack> itemString : recipe.getInputStacks())
@@ -151,7 +151,7 @@ public class EntityHearthWell extends Entity {
 						int extraDust = 0;
 						for (ItemEntity itemEntity : nearItemsGood) {
 							ItemStack nearStack = itemEntity.getItem();
-							if (nearStack.getItem() == HearthWell.myst_dust) {
+							if (nearStack.getItem() == HearthWell.myst_dust.get()) {
 								while (nearStack.getCount() > 0 && extraDust < 64) {
 									nearStack.shrink(1);
 									extraDust++;

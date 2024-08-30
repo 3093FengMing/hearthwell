@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "hearthwell:items/petrified_wood_chunk"
+		"layer0": "hearthwell:item/petrified_wood_chunk"
 	},
 	"display": {
 		"thirdperson": {

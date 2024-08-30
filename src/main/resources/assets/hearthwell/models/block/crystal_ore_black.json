@@ -3,7 +3,7 @@
 	"textures": {
 		"particle": "minecraft:block/blackstone",
 		"texture": "minecraft:block/blackstone",
-		"overlay": "hearthwell:blocks/crystal_ore"
+		"overlay": "hearthwell:block/crystal_ore"
 	},
 	"elements": [
 		{

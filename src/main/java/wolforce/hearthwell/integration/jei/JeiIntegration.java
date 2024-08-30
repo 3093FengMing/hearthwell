@@ -5,7 +5,6 @@ import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IModIngredientRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import wolforce.hearthwell.HearthWell;
@@ -40,19 +39,19 @@ public class JeiIntegration extends IJeiIntegration {
 
 	@Override
 	protected void registerOther(IRecipeRegistration reg) {
-		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.prayer_letter)), VanillaTypes.ITEM_STACK,
+		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.prayer_letter.get())), VanillaTypes.ITEM_STACK,
 				Component.translatable("description.hearthwell.prayer_letter"));
-		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.flare_torch)), VanillaTypes.ITEM_STACK,
+		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.flare_torch.get())), VanillaTypes.ITEM_STACK,
 				Component.translatable("description.hearthwell.flare_torch"));
-		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.myst_dust)), VanillaTypes.ITEM_STACK,
+		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.myst_dust.get())), VanillaTypes.ITEM_STACK,
 				Component.translatable("description.hearthwell.myst_dust"));
-		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.myst_bush)), VanillaTypes.ITEM_STACK,
+		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.myst_bush.get())), VanillaTypes.ITEM_STACK,
 				Component.translatable("description.hearthwell.myst_bush"));
-		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.myst_bush_small)), VanillaTypes.ITEM_STACK,
+		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.myst_bush_small.get())), VanillaTypes.ITEM_STACK,
 				Component.translatable("description.hearthwell.myst_bush_small"));
-		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.crystal)), VanillaTypes.ITEM_STACK,
+		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.crystal.get())), VanillaTypes.ITEM_STACK,
 				Component.translatable("description.hearthwell.crystal"));
-		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.token_base)), VanillaTypes.ITEM_STACK,
+		reg.addIngredientInfo(Util.listOf(new ItemStack(HearthWell.token_base.get())), VanillaTypes.ITEM_STACK,
 				Component.translatable("description.hearthwell.token_base"));
 		for (ItemTokenOf tokenItem : HearthWell.getTokenItems()) {
 			reg.addIngredientInfo(Util.listOf(new ItemStack(tokenItem)), VanillaTypes.ITEM_STACK,

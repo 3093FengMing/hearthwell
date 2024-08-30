@@ -9,14 +9,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootContext.Builder;
 import net.minecraft.world.level.storage.loot.LootParams;
 import wolforce.hearthwell.HearthWell;
 import wolforce.hearthwell.bases.BaseBlock;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class BlockMystGrass extends BaseBlock {
 
@@ -60,9 +58,9 @@ public class BlockMystGrass extends BaseBlock {
 		if (isNearBushes(world, pos.above()) && random.nextFloat() < .5)
 			return;
 		if (world.isEmptyBlock(pos.above())) {
-			world.setBlockAndUpdate(pos.above(), HearthWell.myst_bush_small.defaultBlockState());
-		} else if (world.getBlockState(pos.above()).getBlock() == HearthWell.myst_bush_small) {
-			world.setBlockAndUpdate(pos.above(), HearthWell.myst_bush.defaultBlockState());
+			world.setBlockAndUpdate(pos.above(), HearthWell.myst_bush_small.get().defaultBlockState());
+		} else if (world.getBlockState(pos.above()).getBlock() == HearthWell.myst_bush_small.get()) {
+			world.setBlockAndUpdate(pos.above(), HearthWell.myst_bush.get().defaultBlockState());
 		}
 	}
 
@@ -85,13 +83,13 @@ public class BlockMystGrass extends BaseBlock {
 		BlockPos pos = _pos.offset(nearPos[0], nearPos[1], nearPos[2]);
 		if (world.getBlockState(pos).getBlock() == Blocks.DIRT || world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK)
 			if (canBeGrass(world, pos))
-				world.setBlockAndUpdate(pos, HearthWell.myst_grass.defaultBlockState());
+				world.setBlockAndUpdate(pos, HearthWell.myst_grass.get().defaultBlockState());
 	}
 
 	private boolean isNearBushes(ServerLevel world, BlockPos pos) {
 		for (Direction direction : horizontals) {
 			Block block = world.getBlockState(pos.relative(direction)).getBlock();
-			if (block == HearthWell.myst_bush || block == HearthWell.myst_bush_small)
+			if (block == HearthWell.myst_bush.get() || block == HearthWell.myst_bush_small.get())
 				return true;
 		}
 		return false;

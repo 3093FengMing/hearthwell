@@ -1,7 +1,7 @@
 {
 	"parent": "minecraft:block/cross",
 	"textures": {
-		"cross": "hearthwell:blocks/myst_bush_small"
+		"cross": "hearthwell:block/myst_bush_small"
 	},
 	"display": {
 		"thirdperson_righthand": {

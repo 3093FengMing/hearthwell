@@ -12,8 +12,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import wolforce.hearthwell.registries.TileEntities;
 
-import java.util.Random;
-
 public class TeFertileSoil extends BlockEntity {
 
 	public TeFertileSoil(BlockPos worldPosition, BlockState blockState) {
@@ -38,7 +36,7 @@ public class TeFertileSoil extends BlockEntity {
 			((BonemealableBlock) block).performBonemeal((ServerLevel) level, level.random, up, bs);
 			if (prevTopBlock != level.getBlockState(pos.above()).getBlock()) {
 				SoundEvent sound = level.getBlockState(pos.above()).getSoundType().getPlaceSound();
-				this.level.playSound((Player) null, pos, sound, SoundSource.BLOCKS, 10000.0F, 1);
+				this.level.playSound(null, pos, sound, SoundSource.BLOCKS, 10000.0F, 1);
 			}
 		}
 	}

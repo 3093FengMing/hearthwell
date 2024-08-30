@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.level.storage.loot.LootContext.Builder;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -48,7 +47,7 @@ public class BlockMystBush extends BaseBlock implements IForgeShearable, IPlanta
 	public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
 		List<ItemStack> drops = new ArrayList<>();
 		int amount = isBig ? 1 + (int) (Math.random() * 3) : (int) (Math.random() * 2);
-		drops.add(new ItemStack(HearthWell.myst_dust, amount));
+		drops.add(new ItemStack(HearthWell.myst_dust.get(), amount));
 		return drops;
 	}
 
@@ -87,7 +86,7 @@ public class BlockMystBush extends BaseBlock implements IForgeShearable, IPlanta
 
 	public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
 		BlockPos blockpos = pos.below();
-		return worldIn.getBlockState(blockpos).getBlock() == HearthWell.myst_grass;
+		return worldIn.getBlockState(blockpos).getBlock() == HearthWell.myst_grass.get();
 	}
 
 	public boolean propagatesSkylightDown(BlockState state, BlockGetter reader, BlockPos pos) {

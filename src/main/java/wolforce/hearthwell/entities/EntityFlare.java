@@ -111,7 +111,7 @@ public class EntityFlare extends Entity {
 
 		for (Iterator<Player> iterator = players.iterator(); iterator.hasNext();) {
 			Player playerEntity = (Player) iterator.next();
-			if (playerEntity.getMainHandItem().getItem() != HearthWell.flare_torch && matchesAnyRecipePlayer(playerEntity.getMainHandItem()) == null)
+			if (playerEntity.getMainHandItem().getItem() != HearthWell.flare_torch.get() && matchesAnyRecipePlayer(playerEntity.getMainHandItem()) == null)
 				iterator.remove();
 		}
 
@@ -142,7 +142,7 @@ public class EntityFlare extends Entity {
 
 	private void moveToPlayer(Player player) {
 
-		boolean torch = player.getMainHandItem().getItem() == HearthWell.flare_torch;
+		boolean torch = player.getMainHandItem().getItem() == HearthWell.flare_torch.get();
 		if (torch && !player.isShiftKeyDown()) {
 			List<EntityFlare> flaresNearPlayer = this.level().getEntitiesOfClass(EntityFlare.class,
 					new AABB(player.getEyePosition().add(-PLAYER_DISTANCE, -PLAYER_DISTANCE, -PLAYER_DISTANCE),
@@ -161,7 +161,7 @@ public class EntityFlare extends Entity {
 		Vec3 linearPos = new Vec3(getX(), realY, getZ());
 		Vec3 difference = pos.subtract(linearPos);
 
-		if (player != null && player.getMainHandItem().getItem() != HearthWell.flare_torch && difference.length() < 0.25) {
+		if (player.getMainHandItem().getItem() != HearthWell.flare_torch.get() && difference.length() < 0.25) {
 			RecipeHandItem recipe = matchesAnyRecipePlayer(player.getMainHandItem());
 			if (recipe != null) {
 				player.getMainHandItem().shrink(1);

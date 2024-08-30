@@ -19,7 +19,7 @@ public class JeiCatCrushing extends JeiCat<RecipeCrushing> {
 
 	@Override
 	public void setRecipe(IRecipeLayoutBuilder builder, RecipeCrushing recipe, IFocusGroup focuses) {
-		builder.addInvisibleIngredients(RecipeIngredientRole.CATALYST).addItemStack(new ItemStack(HearthWell.crushing_block));
+		builder.addInvisibleIngredients(RecipeIngredientRole.CATALYST).addItemStack(new ItemStack(HearthWell.crushing_block.get()));
 		builder.addSlot(RecipeIngredientRole.INPUT, 17, 17).addItemStacks(recipe.getInputStack());
 		builder.addSlot(RecipeIngredientRole.OUTPUT, 87, 17).addItemStacks(recipe.getOutputStacksFlat());
 	}

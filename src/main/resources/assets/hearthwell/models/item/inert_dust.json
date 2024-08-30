@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "hearthwell:items/inert_dust"
+		"layer0": "hearthwell:item/inert_dust"
 	},
 	"display": {
 		"thirdperson": {
