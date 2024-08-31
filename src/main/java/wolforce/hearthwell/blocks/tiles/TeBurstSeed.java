@@ -31,8 +31,8 @@ public class TeBurstSeed extends BlockEntityParent {
 	public void tick(Level level, BlockPos pos, BlockState blockState) {
 
 		if (chaos > 0) {
-			chaos *= .99;
-			chaos -= .00005;// + Math.max(0, 1 - chaos);
+			chaos *= .99F;
+			chaos -= .00005F;// + Math.max(0, 1 - chaos);
 		}
 		if (chaos < .001)
 			chaos = 0;
@@ -50,7 +50,7 @@ public class TeBurstSeed extends BlockEntityParent {
 			return;
 		Random rand = new Random();
 		ItemStack stack = getItem().copy();
-		double speed = 1.0 + stack.getCount() / 10;
+		double speed = 1.0 + (double) stack.getCount() / 10;
 //		int count = stack.getCount() * stack.getCount() / 4;
 		int _count = stack.getCount();
 		double _count2 = 0.04 * _count * _count + 1.5 * _count - 2;

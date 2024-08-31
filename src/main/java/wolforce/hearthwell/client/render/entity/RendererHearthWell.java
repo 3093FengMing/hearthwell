@@ -18,7 +18,7 @@ public class RendererHearthWell extends EntityRenderer<EntityHearthWell> impleme
 
 	public RendererHearthWell(EntityRendererProvider.Context context) {
 		super(context);
-		model = new ModelHearthWell<EntityHearthWell>(ModelHearthWell.createBodyLayer().bakeRoot());
+		model = new ModelHearthWell<>(ModelHearthWell.createBodyLayer().bakeRoot());
 	}
 
 	@Override

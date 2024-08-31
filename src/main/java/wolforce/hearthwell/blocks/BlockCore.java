@@ -35,8 +35,9 @@ public class BlockCore extends BaseBlock implements BlockHasRenderLayer.Transluc
 //		return world.getBlockState(pos.below()).canOcclude();
 //	}
 
+
 	public static ItemStack getRandomDrop(ItemStack stack) {
-		int n = (int) (stack.getCount() / 2 + Math.random() * stack.getCount() / 2);
+		int n = (int) ((double) stack.getCount() / 2 + Math.random() * stack.getCount() / 2);
 		return new ItemStack(stack.getItem(), n, stack.getTag());
 	}
 

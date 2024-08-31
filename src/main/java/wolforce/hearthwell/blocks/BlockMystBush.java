@@ -95,7 +95,7 @@ public class BlockMystBush extends BaseBlock implements IForgeShearable, IPlanta
 
 	@SuppressWarnings("deprecation")
 	public boolean isPathfindable(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type) {
-		return type == PathComputationType.AIR && !this.hasCollision ? true : super.isPathfindable(state, worldIn, pos, type);
+		return type == PathComputationType.AIR && !this.hasCollision || super.isPathfindable(state, worldIn, pos, type);
 	}
 
 	@Override

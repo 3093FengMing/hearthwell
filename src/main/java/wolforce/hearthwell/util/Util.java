@@ -30,10 +30,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.security.InvalidParameterException;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Util {
 
@@ -99,9 +96,7 @@ public class Util {
 
 	@SafeVarargs
 	public static <T> List<T> listOf(T... objs) {
-		LinkedList<T> list = new LinkedList<T>();
-        list.addAll(Arrays.asList(objs));
-		return list;
+        return new ArrayList<>(Arrays.asList(objs));
 	}
 
 	@SafeVarargs
