@@ -12,7 +12,7 @@ displayName="${mod_name}"
 #updateJSONURL="http://myurl.me/"
 #issueTrackerURL="http://my.issue.tracker/"
 
-displayURL="https://wolforcept.github.io"
+displayURL="https://github.com/3093FengMing/hearthwell"
 logoFile="logo.png"
 
 credits="${mod_authors}"
